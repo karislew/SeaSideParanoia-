@@ -1,0 +1,101 @@
+﻿title: Scene_01
+tags:
+colorID: 0
+position: 0,0
+---
+
+<<Scene solar_eclipse>>
+
+THE FIRST SCENE
+
+<<Act GL gl_js left center green>>
+
+GL: In brightest Day...
+GL: In blackest night...
+
+<<Act  Sim sims4 right center red>>
+
+GL: No evil shall escape my sight.
+GL: Let those who worship evil's might...
+GL: Beware my power!
+GL: GREEN LANTERN'S LIGHT!
+
+Sim: okaaayyyy...
+
+
+===
+title: Scene_02
+tags:
+colorID: 0
+position: 0,0
+---
+
+<<Act Sim sims4 left center red>>
+
+Sim: hello there
+
+<<Act GL gl_js right center green>>
+
+GL: hello...
+
+Sim: nice weather, a really cool eclipse too!
+
+GL: not as cool as seeing a star explode in person B)
+
+
+===
+title: Scene_03
+tags:
+colorID: 0
+position: 0,0
+---
+
+Narrator: Hello, I'm going to give you a quiz.
+
+<<Act GL gl_js right center green>>
+
+GL: uh...
+
+Narrator: Are there more stars in the sky or grains of sand on earth?
+-> More stars.
+    GL: More stars.
+    Narrator: Nope!
+-> More grains of sand.
+    GL: More grains of sand.
+    Narrator: Correct!
+Narrator: There are more grains of sand on Earth than there are stars in the universe!
+Narrator: Isn't that freaky?
+
+
+===
+title: Scene_04
+tags:
+colorID: 0
+position: 0,0
+---
+
+<<Act GL gl_js offleft center green>>
+<<Act  Sim  sims4 offright center blue>>
+
+GL: doot doo dooo~
+
+<<Move GL left center 2>>
+
+GL: lalalalalaaa~~
+
+<<Move Sim right center 2>>
+
+Sim: ...hi
+
+GL: ...bye
+
+<<Move GL offleft topedge 1>>
+
+Sim:
+Sim:...
+Sim: Well, forget you too!
+
+<<Move Sim right topedge 1>>
+<<wait 1>>
+
+===
