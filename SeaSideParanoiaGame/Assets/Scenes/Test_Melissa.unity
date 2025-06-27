@@ -1013,7 +1013,7 @@ MonoBehaviour:
   - {fileID: 3650627009025100833}
   - {fileID: 701637180}
   - {fileID: 311948398704443434}
-  startNode: Scene_01
+  startNode: Scene_04
   startAutomatically: 1
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 0}
@@ -1290,6 +1290,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 3650627009025100833}
+    - target: {fileID: 4793144226400731546, guid: d0569be49f44768ebbba8b99662ec5fe, type: 3}
+      propertyPath: maxTextLength
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

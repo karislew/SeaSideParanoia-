@@ -346,8 +346,9 @@ public static class WordBreak
     {
         char[] breakChars = {
             ' ', '\t',
-            '.', '!', '?',
-            ',', ';', ':', '-'
+            '-'
+            //'.', '!', '?',
+            //',', ';', ':',
         };
 
         for (int i = 0; i < breakChars.Length; i++)
