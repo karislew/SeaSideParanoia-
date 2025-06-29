@@ -46,40 +46,45 @@ namespace Yarn.Unity.Example {
 
 		static Vector2 screenSize = new Vector2( 1280f, 720f); // needed for position calcuations, e.g. what does "left" mean?
 
-		void Awake () {
+		void Awake()
+		{
 			// manually add all Yarn command handlers, so that we don't
 			// have to type out game object names in Yarn scripts (also
 			// gives us a performance increase by avoiding GameObject.Find)
-			runner.AddCommandHandler<string>("Scene", DoSceneChange );
-			runner.AddCommandHandler<string,string,string,string,string>("Act", SetActor );
-			runner.AddCommandHandler<string,string,string>("Draw", SetSpriteYarn );
+			runner.AddCommandHandler<string>("Scene", DoSceneChange);
+			runner.AddCommandHandler<string, string, string, string, string>("Act", SetActor);
+			runner.AddCommandHandler<string, string, string>("Draw", SetSpriteYarn);
 
-			runner.AddCommandHandler<string>("Hide", HideSprite );
-			runner.AddCommandHandler("HideAll", HideAllSprites );
-			runner.AddCommandHandler("Reset", ResetScene );
+			runner.AddCommandHandler<string>("Hide", HideSprite);
+			runner.AddCommandHandler("HideAll", HideAllSprites);
+			runner.AddCommandHandler("Reset", ResetScene);
 
-			runner.AddCommandHandler<string,string,string,float>("Move", MoveSprite );
-			runner.AddCommandHandler<string,string>("Flip", FlipSprite );
-			runner.AddCommandHandler<string,float>("Shake", ShakeSprite );
+			runner.AddCommandHandler<string, string, string, float>("Move", MoveSprite);
+			runner.AddCommandHandler<string, string>("Flip", FlipSprite);
+			runner.AddCommandHandler<string, float>("Shake", ShakeSprite);
 
-			runner.AddCommandHandler<string,float,string>("PlayAudio", PlayAudio );
-			runner.AddCommandHandler<string>("StopAudio", StopAudio );
-			runner.AddCommandHandler("StopAudioAll", StopAudioAll );
+			runner.AddCommandHandler<string, float, string>("PlayAudio", PlayAudio);
+			runner.AddCommandHandler<string>("StopAudio", StopAudio);
+			runner.AddCommandHandler("StopAudioAll", StopAudioAll);
 
-            runner.AddCommandHandler<string,float,float,float>("Fade", SetFade );
-			runner.AddCommandHandler<float>("FadeIn", SetFadeIn );
-			runner.AddCommandHandler<string,string,float>("CamOffset", SetCameraOffset );
+			runner.AddCommandHandler<string, float, float, float>("Fade", SetFade);
+			runner.AddCommandHandler<float>("FadeIn", SetFadeIn);
+			runner.AddCommandHandler<string, string, float>("CamOffset", SetCameraOffset);
 
 			// adds all Resources to internal lists / one big pile... it
 			// will scan inside all subfolders too! note: but when
 			// referencing sprites in the Yarn script, just use the file
 			// name and omit folder names
-			if ( useResourcesFolders ) {
+			if (useResourcesFolders)
+			{
 				var allSpritesInResources = Resources.LoadAll<Sprite>("");
-				loadSprites.AddRange( allSpritesInResources );
+				loadSprites.AddRange(allSpritesInResources);
 				var allAudioInResources = Resources.LoadAll<AudioClip>("");
-				loadAudio.AddRange( allAudioInResources );
+				loadAudio.AddRange(allAudioInResources);
 			}
+			runner.onDialogueStart.AddListener(ResetScene);
+
+			runner.onDialogueComplete.AddListener(ResetScene);
 		}
 
 		#region YarnCommands
